@@ -1,0 +1,161 @@
+/* body, agregamos la fuente para las letras y agregamos margin 0 y padding 0 para que todo este al borde de la pantalla */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* material-icons
+    esto se encuentra en la documentacion de los iconos de google, sirve para poder pintar los iconos */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* nav, aca agregamos el color de fondo, el color del texto y el tamaño en horizontal del nav */
+nav {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+/* nav .mobile, acá escondemos el menu de movil, para que no sea visible cuando sea la pantalla de un tamaño grande */
+nav .mobile {
+    display: none;
+}
+
+/* nav .mobile .header, acá hacemos que el display sea flex, es decir que los elementos se encuentren uno al lado del otro, en lugar de bloques, agregamos el justify-content para separar los elementos, en este caso space-between sirve para que todos los elementos tengan una separación igual, align-items para centrar los elementos y un padding-left para que el logo no se pegue tanto a la pantalla */
+nav .mobile .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+}
+
+/* aca hacemos que el borde del boton more desaparezca, agregando un color igual al del nav y haciendo que el color del texto del boton sea blanco, con un padding de 15px a todos los lados, el cursor pointer sirve para que el cursor del mouse cambie a una manito */
+nav .mobile .header .more button{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+/* agregamos un min-width o sea un tamaño minimo al logo, esto no quiere decir que el logo solo puede tener 250px, quiere decir que el logo puede ser mayor pero nunca menor que 250px */
+nav .logo {
+    min-width: 250px;
+}
+
+/* con esto hacemos que las etiquetas a o sea los enlaces tengan un color de texto blanco, text-decoration: none hace que los colores y la decoracion predeterminada de los elementos a desaparezcan y se vean mas estilizados, agregamos display block para que aparezcan uno abajo de otro y con el padding hacemos que tengan 20px arriba y abajo y 25px izquierda y derecha */
+nav a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 20px 25px;
+}
+
+
+/* hacemos que al pasar el mouse por el elemento a o sea los enlaces el color del texto y el color de fondo cambien generando un efecto como de boton */
+nav a:hover {
+    color: black;
+    background-color: rgb(0, 195, 255);
+}
+
+
+/* nav .desktop, usamos display flex como en el ejemplo mas arriba, y lo mismo para los demas */
+nav .desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* agregamos display flex a los demas enlaces para que se posiciones uno al lado del otro */
+nav .desktop .primary, 
+nav .desktop .secondary {
+    display: flex;
+}
+
+/* este es un menu minificado, que se mostrara cuando la pantalla del dispositivo sea algo mas pequeña que la de una computadora, en este caso la escondemos para que no moleste todavia */
+nav .desktop .secondary.mini {
+    display: none;
+}
+
+/* bien, aca usamos medias para poder realizar un comportamiento, mas bien un redimencion a la pagina cuando alcance cierto tamaño con la propiedad max-width */
+@media screen and (max-width: 893px) {
+    /* hacemos que el logo tenga ahora un min-width de 100px */
+    nav .logo {
+        min-width: 100px;
+    }
+
+    /* los links full ya se esconden con la propiedad display: none */
+    nav .secondary.full {
+        display: none;
+    }
+
+    /* ahora se muestran los links minificados y usamos !important para que los muestre, porque hay un problema de especificidad que no encuentre xd */
+    nav .secondary.mini {
+        display: block !important;
+    }
+
+    /* ocultamos el submenu que contiene el div minificado de arriba y le agregamos un color de fondo, una posicion absoluta para que pueda ser mejor posicionado luego al aparecer y un width de 200px, recuerden que width es el tamaño en forma horizontal, el right 0 se usa para que este pegado al lado derecho de la pantalla */
+    nav .secondary.mini .submenu {
+        background-color: black;
+        position: absolute;
+        display: none;
+        width: 200px;
+        right: 0;
+    }
+
+    /* usamos la propiedad hover para que al pasar el mouse encima del boton more, se muestren los links ocultos arriba */
+    nav .secondary.mini:hover .submenu {
+        display: block;
+    }
+}
+
+/* usamos otro media para que en este caso muestre el menu mobile */
+@media screen and (max-width: 500px) {
+    /* escondemos el menu desktop o sea el de tamaño mas grande */
+    nav .desktop {
+        display: none;
+    }
+
+    /* hacemos que el menu mobile sea visible en forma de bloque con el display */
+    nav .mobile {
+        display: block;
+    }
+
+    /* con esto hacemos que los links que estan dentro del div more se oculten justo como el ejemplo de arriba, solo cambia la propiedad right por left, y el width en 100% para que agarre todo el largo de la pantalla en forma horizontal */
+    nav .mobile .header .more .links {
+        display: none;
+        position: absolute;
+        background-color: black;
+        left: 0;
+        width: 100%;
+    }
+
+    /* por ultimo hacemos que los links se vean pasando el mouse encima */
+    nav .mobile .header .more:hover .links {
+       display: block; 
+    } 
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Menu Responsivo Horizontal</title>
+  </head>
+  <body>
+    <!-- creamos la navegacion para movil -->
+    <nav>
+        <!-- este div es para poder diferenciar el menu para moviles del menu para desktop, y seria el div principal de movil -->
+      <div class="mobile">
+          <!-- el div header representa la cabecera de navegacion -->
+        <div class="header">
+            <!-- el div logo es para agregar un logo obviamente -->
+          <div class="logo">Logo</div>
+          <!-- el div more es para el boton menu, que al pasar el dedo o el mouse por el, se puede abrir el menu -->
+          <div class="more">
+            <button><span class="material-icons"> menu </span></button>
+            <!-- los links -->
+            <div class="links">
+              <a href="#">Services</a>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+              <a href="#">Search</a>
+              <a href="#">Sign up</a>
+              <a href="#">Login</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- escritorio -->
+      <!-- div para desktop -->
+      <div class="desktop">
+          <!-- lo mismo para el logo -->
+        <div class="logo">Logo</div>
+        <!-- clase primary, estos enlaces estarian en el centro de la pagina -->
+        <div class="primary">
+          <a href="#">Services</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <!-- clase secondary full esto estaria en la esquina derecha de la pagina, cuando el tamaño sea ideal -->
+        <div class="secondary full">
+          <a href="#">Search</a>
+          <a href="#">Sign up</a>
+          <a href="#">Login</a>
+        </div>
+
+        <!-- clase decondary mini, esto estaria escondido al llegar a un tamaño de pantalla pequeño, pero seria mostrado al pasar el mouse encima del boton more -->
+        <div class="secondary mini">
+          <a href="#" class="more">More</a>
+          <div class="submenu">
+            <a href="#">Search</a>
+            <a href="#">Sign up</a>
+            <a href="#">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>
